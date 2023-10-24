@@ -1,0 +1,749 @@
+html {
+    font-size: 2rem;
+}
+
+.purple-bg {
+    background-color: #33004D;
+    background-image: url('../images/bats-and-moon.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+h1, h2, h3, a, p, label, input, button, output, span {
+    font-family: 'Amatic SC', cursive;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+/* style for the Navbar */
+.navbar a {
+    color: #fff;
+    font-family: 'Amatic SC', cursive;
+    transition: color 0.3s;
+    align-items: center;
+}
+
+#navbar-nav {
+    margin-left: 50%; /* Move the links to the right */
+}
+
+
+/* color to green on hover on anchors */
+.navbar a:hover, .member-info a:hover {
+    color: #8cc63e;
+}
+.nav-item.active{
+    color: #fff;;
+    text-decoration: underline;  
+}
+
+/* Apply Neucha font to regular paragraph text */
+p, input, output, button, b {
+    font-family: 'Neucha', cursive;
+}
+
+#firstResult, #secondResult, #thirdResult, #finalButton {
+    font-family: 'Neucha', cursive;
+}
+
+#finalResult {
+    font-size: 2.5vw;
+}
+
+/* Styling for the welcome image */
+#welcome-image {
+    border-radius: 50%;
+    filter: drop-shadow(0 1px 5px #fff);
+    animation-duration: 2s;
+}
+
+/* edit input background color*/
+.form-control {
+    background-color: #75cb826b;
+}
+
+/* edit curse-level buttons*/
+.card-body a {
+    background-color: #75cb826b;
+    color: black;
+}
+.curse-level a {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.sections {
+    text-align: left;
+}
+
+.sections > div {
+    text-align: center;
+}
+
+.sections h2, h3 {
+    text-align: left;
+    font-size: xx-large;
+}
+
+.sections button {
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+    border-color: #662d92;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.sections button:hover {
+    background-color: #663399;
+    color: #ffffff; 
+    transition: background-color 0.3s ease-in-out; 
+}
+
+#finalButton {
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+    border-color: #662d92;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#finalButton:hover {
+    background-color: #663399;
+    color: #ffffff; 
+    transition: background-color 0.3s ease-in-out; 
+}
+
+#refresh {
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+    border-radius: 6px;
+    border-color: #662d92;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#refresh:hover {
+    background-color: #663399;
+    color: #ffffff; 
+    transition: background-color 0.3s ease-in-out; 
+}
+
+/* Style the heading */
+h1 {
+    font-size: 2rem;
+}
+
+/* Style the paragraph */
+p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Style the contact box */
+.contact-box {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-image: url('../images/bats-and-moon.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 4rem;
+}
+
+/* Style the left side of the contact box */
+.contact-left {
+    text-align: center;
+    padding: 20px;
+    width: 40%;
+}
+
+/* Style the form */
+form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style the input groups */
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    width: 48%;
+}
+.padding {
+    padding-top: 10px ;
+}
+/* Style labels */
+label {
+    font-weight: bold;
+    display: block;
+    color: rgb(201, 191, 191);
+}
+
+/* Style form controls */
+input[type="text"],
+input[type="email"]
+ {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    color: #217712;
+    border: #5f0c0c;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Style the right side of the contact box */
+.contact-right {
+    text-align: center;
+    padding: 20px;
+    width: 40%;
+}
+
+/* Style the submit button */
+.submit-button-contact {
+    background-color: #42043f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add hover effect to the button */
+.submit-button-contact:hover {
+    background-color: #25061e;
+}
+
+/* Style the form's text area */
+textarea {
+    width: 100% ;
+    outline: none;
+    
+}
+
+.member-info a {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* this footer needs review*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 50px;
+}
+/*new footer code*/
+.footer_bg {
+    position: sticky;
+    background-color: #000000;
+    top:100%;
+}
+
+/*footer hover*/
+.footer_icon i:hover,
+.footer_copyright:hover,
+.footer_name:hover{
+    color: #8cc63e;
+}
+
+.semi-opaque-box {
+    margin: 20px;
+    background-color: rgba(130, 218, 109, 0.55); /* Green color with 70% opacity */
+    padding: 20px;
+    border: 5px solid rgb(255, 255, 255); /* Black border for contrast */
+    border-radius: 10px;
+    text-align: left;
+}
+
+/*logo*/
+.logo{
+    height: 6vw;
+    width: 12vw;
+    animation: spookyFlicker 2s infinite;
+    transition: transform 0.5s ease-in-out;
+    background-color: #FFFFFF;
+    border-radius: 50% 50% 50% 50% / 50% 50% 100% 100%; /* Bat eye-shaped border-radius */
+    box-shadow: 0 0 20px rgb(245, 244, 244); /* Adds a shadow for a spooky effect */
+}
+
+.logo:hover {
+    transform: scale(1.25);
+  }
+  /*logo animation*/
+  @keyframes spookyFlicker {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+/* Style for the video pop-ups */
+#video-links {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.video-thumbnails {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-thumbnails iframe {
+    border: 2px solid #fff;
+    border-radius: 2px;
+}
+
+/* Styles for the pop-up video container */
+.video-label {
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+/* Beetlejuice's curse styling */
+#beetlejuice {
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 3rem;
+    max-width: 39vw;
+}
+
+#semi-opaque-box-curse {
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgba(130, 218, 109, 0.55); 
+    padding: 20px;
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.beetlejuice-dialogue {
+    width: 100vw;
+}
+
+#headspin {
+    position: absolute;
+    top: 315px;
+    left: 50%;
+    z-index: 1;
+    width: 200px;
+    height: 200px;
+    margin: 76px 0 0 -76px;
+    border: 10px solid purple;
+    border-radius: 50%;
+    background-image: url(../images/scary-face-spinner.jpg);
+    background-size: contain;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+
+#refresh-container {
+    padding-left: 2.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* styling the contact page*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.container-contact {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.container-contact .content-contact {
+    max-width: 800px;
+    text-align: center;
+}
+
+.container-contact .content-contact  h2{
+   font-size: 36px;
+   font-weight: 500;
+   color: green;
+
+}
+.container-contact .content-contact  p{
+    font-weight: 100;
+    color: white;
+    font-size: 20px;
+
+ }
+
+ .contain {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+ }
+
+.contain .contact-info{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.contain .contact-info .contact-box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+
+
+}
+.contain .contact-info .contact-box .icon{
+    min-width: 60px;
+    height: 60px;
+    background:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+
+}
+
+.contain .contact-info .contact-box .contact-text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.contain .contact-info .contact-box .contact-text h3{
+    font-weight: 1000;
+    color: green;
+}
+
+.contact-form {
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+
+}
+
+.contact-form  h2{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500 ;
+
+}
+
+.contact-form  .input-box{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contact-form  .input-box input,.contact-form  .input-box textarea{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+  }
+
+  .contact-form  .input-box span{
+     position: absolute;
+     left: 0;
+     padding: 5px 0;
+     font-size: 16px;
+     margin: 1px 0;
+     pointer-events: none;
+     transition: 0.5s;
+     color: #666;
+
+  }
+
+  .contact-form  .input-box  input:focus ~ span,
+  .contact-form  .input-box  input:valid ~ span ,
+  .contact-form  .input-box  textarea:focus ~ span, 
+  .contact-form  .input-box  textarea:valid ~ span
+  {
+    color:rgba(63, 4, 63);
+    font-size: 12px;
+    transform: translateY(-20px);
+
+ }
+
+ .contact-form  .input-box  input[type="submit"] {
+    width: 100px;
+    background: rgba(63, 4, 63);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+ }
+ @media (max-width:991px) {
+    .container-contact{
+        padding:50px;
+
+    }
+    .contain{
+        flex-direction: column;
+    }
+
+    .contain .contact-info{
+        margin-bottom: 40px;
+    }
+    .contain .contact-info .contact-form{
+       width: 100%;
+    }
+
+ }
+
+
+ /*  style the team section */
+ .team .member {
+    position: relative;
+    padding: 20px; 
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background: #fff;
+    transition: all 0.3s; 
+    max-width: 300px; 
+    margin: 0 auto; 
+}
+
+.team .member:hover {
+    transform: scale(0.95); 
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2); 
+}
+
+
+.team .member .team-3{
+    overflow: hidden;
+    width: 180px;
+    border-radius: 50%;
+}
+
+.team .member .member-info{
+    padding-left: 30px;
+
+}
+.team .member {
+    font-weight: 300;
+    margin-bottom: 5px;
+    font-size: 10px;
+    color: green; 
+}
+.team .member span{
+    display: block;
+    font-size: 15px;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 500;
+    color: #33004D;;
+
+}
+.team .member span::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: black;
+    bottom: 0;
+    left: 0;
+
+}
+.team .member p {
+    margin-bottom: 10px;
+    color: #3a084b;
+    font-weight: 600;
+}
+
+.team .member .social i {
+font-size: 18px;
+color: #33004D;
+}
+
+.team .member .social a {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 25px; 
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #3a084b; 
+    text-decoration: none; 
+    color: #662d92; 
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+
+.team .member .social a:hover {
+    background-color: #662d92; 
+    border-color: transparent; 
+
+}
+
+.team .member .social a+a {
+    margin-left: 8px;
+}
+
+section{
+    padding: 1px 0;
+    overflow: hidden;
+}
+
+.section-title{
+    text-align: center;
+    padding-bottom: 30px;
+    color:green;
+}
+.right {
+    font-size: small;
+    text-align: center;
+    padding-top: 100px;
+    color: green;
+}
+
+/* this footer needs review*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 50px;
+}
+/*new footer code*/
+.footer_bg {
+    position: sticky;
+    background-color: #000000;
+    top:100%;
+}
+
+/*footer hover*/
+.footer_icon i:hover,
+.footer_copyright:hover,
+.footer_name:hover{
+    color: #8cc63e;
+}
+
+#name {
+    width: 100%;
+    text-align: center;
+}
+
+#fullPhrase, #refresh {
+    font-family: 'Amatic SC', cursive;
+    padding: 25px;
+    text-align: center;
+}
+
+#headspin-div {
+    height: 100vh;
+}
+
+/* Media Queries */
+
+@media (max-width: 1250px) {
+    .logo {
+        width: 4rem;
+        height: 2rem;
+    }
+
+    .navbar {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    #semi-opaque-box-curse {
+        margin-left: 60px;
+    }
+
+    #beetlejuice {
+        max-width: 56vw;
+        margin-left: 21vw;
+    }
+
+    #finalResult {
+        font-size: 1rem;
+      }
+}
+
+@media (max-width: 991px) and (min-width: 767px) {
+    .video-thumbnails {
+        flex-direction: column; /* Change to column layout */
+    }
+
+    iframe {
+        width: 245px;
+    }
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media (max-width: 767px) { 
+    #history-box h1 {
+        font-size: 1.5rem;
+    }
+
+    #history-box h2 {
+        font-size: 1.5rem;
+    }
+
+    #history-box p {
+        font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 544px) { 
+    #history-box h2 {
+        font-size: 1rem;
+    }
+    #history-box p {
+        font-size: 0.7rem;
+    }
+  }
+
