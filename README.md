@@ -1,24 +1,47 @@
+# Beetlejuice Beetlejuice Beetlejuice
 
-<h1 align="center"><strong>🎃🎃🎃 Phantom Forge: A Halloween Hackathon 🎃🎃🎃</strong>
-</h1>
+![Logo](./assets/images/logo-green.png)
+![BeetleGIF](./assets/images/its-showtime3.gif)
 
-<h1 align="center"><strong>🦇🦇 The Beetlejuice Cursifier 🦇🦇 </strong></h1>
+This project was completed within five days as part of a hackathon that took place in October 2023. 
+
+I was fortunate enough to have been teamed up with a talented and dedicated group of people consistingo of Code Institute students and Alumni. I played various roles in succesfully delivering this project alongside the following Full Stack Software Developers (in alphabetical order):
+
+- AJ
+- Gabriel (scrum master)
+- Marelius
+- Marlon
+- Uju
+
+The hackathon was organised by Code Institute and was called 'Phantom Forge: A Halloween Hackathon'.
 
 
-<img src="https://res.cloudinary.com/djdefbnij/image/upload/v1695815394/October-banner_alm4vx.jpg" alt="PhantomForgeBanner" width="1200"/>
+<img src="https://res.cloudinary.com/djdefbnij/image/upload/v1695815394/October-banner_alm4vx.jpg" alt="PhantomForgeBanner" width="200"/>
+
+## Beetlejuice Cursifier
+
+The original project repsitory can be found at ['Beetlejuice Cursifier'](https://github.com/L0rdGabbers/curse-generator/tree/main) hosted by the scrum master for the team [Gabriel](https://github.com/L0rdGabbers/curse-generator/tree/main).
+
+It is a fanbase site dedicated to the movie character Beetlejuice created by Tim Burton. 
+
+It features four pages:
+  1. The landing page welcomes the User and provokatively invites them to play a game, gnerating a funny cursing on someone.
+  2. The game page which allows for a user to generate a curse to cast on anyone ther User wants.
+  3. The history page features details about the background of the main character and concept of Beetlejuice thw movie. To inform the User even more about the backdrop for this website, trailers for the original movie and the forthcoming sequel are included.. 
+  4. There is also a contact us page, where a user can can make complete a form to communicate with the owners of the website.
 
 
-# Beetlejuice Cursifier
+To view the original repository and README.md file click [here](https://l0rdgabbers.github.io/curse-generator/).
 
-The Beetlejuice Cursifier is a fanbase site dedicated to the movie character Beetlejuice by Tim Burton. It features four pages, the landing page being a welcome page which provides a direct link to the mini game page which allows for a user to create an automatically generated (and perhaps also funny) curse.
-The 'history' page features a few paragraphs of text detailing the history, both canonical and filmographical, regarding the popular halloween film character, and also features a few iFrames of the movie trailers. 
-The last page is the contact page, where a user can can make an enquiry by filling a simple form.
+This project, **Beetlejuice Beetlejuice Beetlejuice**, evolved out of 'Beetlejuice Cursifier'.
 
 
-View the live site
- [here](https://l0rdgabbers.github.io/curse-generator/).
 
-![Mockup](assets/images/readme-images/beetlejuice-responsive.png)
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 
 ## Features 
 
