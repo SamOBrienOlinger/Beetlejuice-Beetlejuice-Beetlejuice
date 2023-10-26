@@ -686,8 +686,13 @@ section{
 }
 
 #tattoos {
-    height: 100vh;
-    width: 100vw;
+    height: 50vh;
+    width: 100%;
+    background-image: url(..//css/Images/Leprechaun.webp);
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    background-position: center;
 }
 
 /* Media Queries */
