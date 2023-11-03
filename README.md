@@ -1,6 +1,7 @@
 # Beetlejuice Beetlejuice Beetlejuice
 
 ![Logo](./assets/images/logo-green.png)
+
 ![BeetleGIF](./assets/images/its-showtime3.gif)
 
 This project was completed within five days as part of a hackathon that took place in October 2023. 
@@ -34,13 +35,6 @@ It features four pages:
 To view the original repository and README.md file click [here](https://l0rdgabbers.github.io/curse-generator/).
 
 This project, **Beetlejuice Beetlejuice Beetlejuice**, evolved out of 'Beetlejuice Cursifier'.
-
-
-
-
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 
 
 ## Features 
