@@ -39,7 +39,7 @@ This project, **Beetlejuice Beetlejuice Beetlejuice**, evolved out of 'Beetlejui
 
 
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
@@ -406,6 +406,8 @@ The live link can be found here -  https://l0rdgabbers.github.io/curse-generator
 ![Project Issues](assets/images/readme-images/user-story-list.png)
 
 ## Credits 
+
+* Tim Burtun, naturally!
 
 * https://www.w3schools.com/ Some of the code was used from this site to create form. Styles were changed to suit styling on our Website. I recommend this site for all beginners.
 
