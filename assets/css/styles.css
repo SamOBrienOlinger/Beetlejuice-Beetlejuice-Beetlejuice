@@ -1,8 +1,11 @@
 html {
-    font-size: 2rem;
+    font-size: 100%;
 }
 
 .purple-bg {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: #33004D;
     background-image: url('../images/bats-and-moon.jpg');
     background-size: cover;
@@ -12,8 +15,15 @@ html {
 
 h1, h2, h3, a, p, label, input, button, output, span {
     font-family: 'Amatic SC', cursive;
-    font-size: xx-large;
     font-weight: bold;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 /* style for the Navbar */
@@ -35,7 +45,7 @@ h1, h2, h3, a, p, label, input, button, output, span {
 }
 .nav-item.active{
     color: #fff;;
-    text-decoration: underline;  
+    text-decoration: underline;
 }
 
 /* Apply Neucha font to regular paragraph text */
@@ -48,14 +58,64 @@ p, input, output, button, b {
 }
 
 #finalResult {
-    font-size: 2.5vw;
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 /* Styling for the welcome image */
 #welcome-image {
+    display: block;
+    width: min(100%, 245px);
+    height: auto;
+    margin-inline: auto;
     border-radius: 50%;
     filter: drop-shadow(0 1px 5px #fff);
-    animation-duration: 2s;
+}
+
+.site-main {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    padding: clamp(0.75rem, 3vw, 2rem);
+}
+
+.landing-card {
+    width: min(100%, 42rem);
+}
+
+#welcome,
+.image-container,
+#welcome-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#welcome {
+    gap: 1.25rem;
+}
+
+#welcome-message {
+    width: 100%;
+    text-align: center;
+}
+
+.play-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.65rem 1.25rem;
+    border: 2px solid #662d92;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    color: #21002f;
+    text-decoration: none;
+}
+
+.play-button:hover,
+.play-button:focus-visible {
+    background: #663399;
+    color: #fff;
 }
 
 /* edit input background color*/
@@ -96,8 +156,8 @@ p, input, output, button, b {
 
 .sections button:hover {
     background-color: #663399;
-    color: #ffffff; 
-    transition: background-color 0.3s ease-in-out; 
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #finalButton {
@@ -110,8 +170,8 @@ p, input, output, button, b {
 
 #finalButton:hover {
     background-color: #663399;
-    color: #ffffff; 
-    transition: background-color 0.3s ease-in-out; 
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #refresh {
@@ -125,8 +185,8 @@ p, input, output, button, b {
 
 #refresh:hover {
     background-color: #663399;
-    color: #ffffff; 
-    transition: background-color 0.3s ease-in-out; 
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
 }
 
 /* Style the heading */
@@ -227,7 +287,7 @@ input[type="email"]
 textarea {
     width: 100% ;
     outline: none;
-    
+
 }
 
 .member-info a {
@@ -245,9 +305,9 @@ textarea {
 }
 /*new footer code*/
 .footer_bg {
-    position: sticky;
+    width: 100%;
+    margin-top: auto;
     background-color: #000000;
-    top:100%;
 }
 
 /*footer hover*/
@@ -258,9 +318,9 @@ textarea {
 }
 
 .semi-opaque-box {
-    margin: 20px;
+    margin: clamp(0.5rem, 2vw, 1.25rem);
     background-color: rgba(130, 218, 109, 0.55); /* Green color with 70% opacity */
-    padding: 20px;
+    padding: clamp(1rem, 3vw, 1.5rem);
     border: 5px solid rgb(255, 255, 255); /* Black border for contrast */
     border-radius: 10px;
     text-align: left;
@@ -268,8 +328,9 @@ textarea {
 
 /*logo*/
 .logo{
-    height: 6vw;
-    width: 12vw;
+    display: block;
+    width: clamp(7rem, 12vw, 10rem);
+    height: auto;
     animation: spookyFlicker 2s infinite;
     transition: transform 0.5s ease-in-out;
     background-color: #FFFFFF;
@@ -318,6 +379,9 @@ textarea {
 }
 
 .video-thumbnails iframe {
+    width: min(100%, 560px);
+    aspect-ratio: 16 / 9;
+    height: auto;
     border: 2px solid #fff;
     border-radius: 2px;
 }
@@ -331,16 +395,18 @@ textarea {
 
 /* Beetlejuice's curse styling */
 #beetlejuice {
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
+    width: min(100%, 28rem);
+    height: auto;
+    margin-inline: auto;
     min-height: 3rem;
-    max-width: 39vw;
+    max-width: 100%;
 }
 
 #semi-opaque-box-curse {
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: rgba(130, 218, 109, 0.55); 
+    width: min(100%, 42rem);
+    margin-inline: auto;
+    background-color: rgba(130, 218, 109, 0.55);
     padding: 20px;
     border: 5px solid rgb(255, 255, 255);
     border-radius: 10px;
@@ -348,33 +414,39 @@ textarea {
 }
 
 .beetlejuice-dialogue {
-    width: 100vw;
+    width: 100%;
+    margin-inline: 0;
+    padding: clamp(0.75rem, 3vw, 2rem);
 }
 
 #headspin {
-    position: absolute;
-    top: 315px;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    z-index: 1;
-    width: 200px;
-    height: 200px;
-    margin: 76px 0 0 -76px;
+    z-index: 1050;
+    width: clamp(10rem, 48vw, 13.75rem);
+    aspect-ratio: 1;
+    height: auto;
+    margin: 0;
     border: 10px solid purple;
     border-radius: 50%;
     background-image: url(../images/scary-face-spinner.jpg);
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
 
 
 #refresh-container {
-    padding-left: 2.5rem;
+    width: 100%;
+    padding: 0;
+    text-align: center;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* styling the contact page*/
@@ -505,7 +577,7 @@ textarea {
 
   .contact-form  .input-box  input:focus ~ span,
   .contact-form  .input-box  input:valid ~ span ,
-  .contact-form  .input-box  textarea:focus ~ span, 
+  .contact-form  .input-box  textarea:focus ~ span,
   .contact-form  .input-box  textarea:valid ~ span
   {
     color:rgba(63, 4, 63);
@@ -545,18 +617,18 @@ textarea {
  /*  style the team section */
  .team .member {
     position: relative;
-    padding: 20px; 
+    padding: 20px;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     background: #fff;
-    transition: all 0.3s; 
-    max-width: 300px; 
-    margin: 0 auto; 
+    transition: all 0.3s;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .team .member:hover {
-    transform: scale(0.95); 
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2); 
+    transform: scale(0.95);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -574,7 +646,7 @@ textarea {
     font-weight: 300;
     margin-bottom: 5px;
     font-size: 10px;
-    color: green; 
+    color: green;
 }
 .team .member span{
     display: block;
@@ -611,19 +683,19 @@ color: #33004D;
     margin-top: 12px;
     display: flex;
     align-items: center;
-    justify-content: center; 
-    width: 25px; 
+    justify-content: center;
+    width: 25px;
     height: 25px;
     border-radius: 50%;
-    border: 2px solid #3a084b; 
-    text-decoration: none; 
-    color: #662d92; 
-    transition: background-color 0.3s, border-color 0.3s; 
+    border: 2px solid #3a084b;
+    text-decoration: none;
+    color: #662d92;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .team .member .social a:hover {
-    background-color: #662d92; 
-    border-color: transparent; 
+    background-color: #662d92;
+    border-color: transparent;
 
 }
 
@@ -686,21 +758,32 @@ section{
 }
 
 #tattoos {
-    height: 50vh;
+    display: block;
+    width: min(100%, 48rem);
+    height: auto;
+    margin-inline: auto;
+    border: 5px solid #fff;
+    border-radius: 0.75rem;
+}
+
+.fun-main {
     width: 100%;
-    background-image: url(../images/beetlejuice-tattoos.jpg);
-    background-repeat: no-repeat;
-    margin-left: auto;
-    margin-right: auto;
-    background-position: center;
+    padding: clamp(1rem, 4vw, 3rem);
+    text-align: center;
+}
+
+.fun-main > *,
+.fun-main section {
+    width: min(100%, 52rem);
+    margin-inline: auto;
 }
 
 /* Media Queries */
 
 @media (max-width: 1250px) {
     .logo {
-        width: 4rem;
-        height: 2rem;
+        width: clamp(7rem, 20vw, 9rem);
+        height: auto;
     }
 
     .navbar {
@@ -710,17 +793,86 @@ section{
 
 @media (max-width: 767px) {
     #semi-opaque-box-curse {
-        margin-left: 60px;
+        margin-inline: auto;
     }
 
     #beetlejuice {
-        max-width: 56vw;
-        margin-left: 21vw;
+        width: min(78vw, 24rem);
+        max-width: 100%;
+        margin-inline: auto;
     }
 
     #finalResult {
         font-size: 1rem;
       }
+}
+
+@media (max-width: 767px) {
+    .purple-bg,
+    .contact-box {
+        background-attachment: scroll;
+    }
+
+    .navbar {
+        padding-inline: 1rem;
+    }
+
+    .navbar-collapse {
+        padding-top: 0.75rem;
+        text-align: right;
+    }
+
+    .semi-opaque-box {
+        margin-inline: 0;
+    }
+
+    .footer_bg {
+        padding: 1.25rem !important;
+    }
+
+    .footer_bg > .row {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-inline: 0;
+        text-align: center;
+    }
+
+    .footer_icon .row {
+        justify-content: center;
+    }
+
+    .contain,
+    .input-row {
+        flex-direction: column;
+    }
+
+    .contain .contact-info,
+    .contact-form,
+    .contact-left,
+    .contact-right,
+    form,
+    .input-group {
+        width: 100%;
+    }
+
+    .contact-box {
+        margin-left: 0;
+    }
+
+    .container,
+    .container-contact {
+        padding: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo {
+        animation: none;
+    }
+
+    #headspin {
+        animation-duration: 6s;
+    }
 }
 
 @media (max-width: 991px) and (min-width: 767px) {
@@ -734,7 +886,7 @@ section{
 }
 
 /* Small devices (landscape phones, 544px and up) */
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
     #history-box h1 {
         font-size: 1.5rem;
     }
@@ -748,7 +900,7 @@ section{
     }
   }
 
-  @media (max-width: 544px) { 
+  @media (max-width: 544px) {
     #history-box h2 {
         font-size: 1rem;
     }
@@ -756,4 +908,3 @@ section{
         font-size: 0.7rem;
     }
   }
-

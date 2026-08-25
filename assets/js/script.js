@@ -3,7 +3,10 @@ const SECOND_PHRASE = document.getElementById("secondResult");
 const THIRD_PHRASE = document.getElementById("thirdResult");
 // JavaScript to dynamically update the copyright year
 const currentYear = new Date().getFullYear();
-document.getElementById('copyrightYear').textContent = currentYear;
+const copyrightYear = document.getElementById('copyrightYear');
+if (copyrightYear) {
+  copyrightYear.textContent = currentYear;
+}
 
 // **** ELEMENT DISABLE CODE ****
 const NAME_ELEMENT = document.getElementById("name");
@@ -128,20 +131,24 @@ let generateText = function (index) {
 };
 
 // **** ELEMENT DISABLE CODE ****
-NAME_ELEMENT.addEventListener("focusout", () =>
-  CURSE_BUTTONS[0].classList.remove("disabled")
-);
+if (NAME_ELEMENT && CURSE_BUTTONS[0]) {
+  NAME_ELEMENT.addEventListener("focusout", () =>
+    CURSE_BUTTONS[0].classList.remove("disabled")
+  );
+}
 
 // **** GENERATE FULL HEX CODE ****
 
 const buttonFinal = document.getElementById("finalButton");
-buttonFinal.addEventListener("click", (e) => {
-  if (checkName() && checkButtons()) {
+if (buttonFinal) {
+  buttonFinal.addEventListener("click", () => {
+    if (checkName() && checkButtons()) {
 // Function to display head spinner when finalButton is clicked for a set amount of time
-    genSpin();
-    genHex();
-  }
-});
+      genSpin();
+      genHex();
+    }
+  });
+}
 
 
 function showCurseAndBeetlejuice() {
@@ -158,8 +165,8 @@ function showCurseAndBeetlejuice() {
 function genSpin() {
   const notPhussy = document.getElementById("phussy");
   const jumpingFooter = document.getElementById("foot");
-  const headspinDiv = document.getElementById('headspin'); 
- 
+  const headspinDiv = document.getElementById('headspin');
+
   jumpingFooter.style.display = "none";
   notPhussy.style.display = "none";
   headspinDiv.style.display = 'block';
@@ -193,9 +200,11 @@ function checkButtons() {
 
 // **** BACK TO TOP AND RELOAD PAGE CODE ****
 const refreshPage = document.getElementById("refresh");
-refreshPage.addEventListener("click", (e) => {
-  document.location.reload();
-});
+if (refreshPage) {
+  refreshPage.addEventListener("click", () => {
+    document.location.reload();
+  });
+}
 
 function genHex() {
   let finalPhrase = document.getElementById("finalResult");
