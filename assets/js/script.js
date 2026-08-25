@@ -9,49 +9,49 @@ document.getElementById('copyrightYear').textContent = currentYear;
 const NAME_ELEMENT = document.getElementById("name");
 
 let phraseListOne = [
-  "Shall forever",
-  "Is cursed to",
-  "Will always",
-  "Is fated to",
-  "Shall eternally",
-  "Is destined to",
-  "Will persistently",
-  "Shall be bound to",
-  "Is condemned to",
-  "Will forever",
+  "shall forever",
+  "is cursed to",
+  "will endlessly",
+  "is fated to",
+  "shall eternally",
+  "is doomed to",
+  "will repeatedly",
+  "is bound to",
+  "is condemned to",
+  "will henceforth",
 ];
 let phraseListTwo = [
-  "Be covered in",
-  "Suffer under",
-  "Endure",
-  "Wade through",
-  "Experience",
-  "Face",
-  "Confront",
-  "Bear",
-  "Endure the torment of",
+  "endure",
+  "suffer through",
+  "face",
+  "confront",
+  "be haunted by",
+  "be tormented by",
+  "be plagued by",
+  "be surrounded by",
+  "be trapped with",
 ];
 let phraseListThree = [
-  "a mountain of Beetlejuice's poop!",
-  "buckets of Beetlejuice spittle!",
-  "a lake of boiling Beetle'JUICE! (whatever that is, use your imagination)",
-  "rotten corpses for a million and one years! ...that is such a long time",
-  "A mountain of candy corn",
-  "Buckets of ghostly treats",
-  "A lake of witches' brew",
-  "Rotten pumpkins for a thousand Halloweens",
-  "Eerie whispers in the moonlight",
-  "Spectral footsteps in the dark",
-  "An endless night of spooktacular puns",
-  "Cauldrons bubbling with enchanted brews",
-  "Ghosts and goblins at the doorstep",
-  "Skeletons dancing to the monster mash",
-  "candy someone else sucked and spat out",
-  "screaming halloween masks",
-  "creepy crawlies",
-  "tapdancing spiders",
+  "a mountain of Beetlejuice's poop",
+  "buckets of Beetlejuice's spittle",
+  "a lake of boiling Beetlejuice — whatever that means; use your imagination",
+  "rotting corpses for a million and one years — an absurdly long time",
+  "a mountain of stale candy corn",
+  "buckets of sinister sweets",
+  "a lake of witches' brew",
+  "rotten pumpkins for a thousand Halloweens",
+  "eerie whispers beneath the moonlight",
+  "spectral footsteps in the dark",
+  "an endless night of spooktacular puns",
+  "cauldrons bubbling with enchanted brews",
+  "ghosts and goblins at the doorstep",
+  "skeletons dancing to \"The Monster Mash\"",
+  "sweets that somebody else has sucked and spat out",
+  "shrieking Halloween masks",
+  "swarms of creepy-crawlies",
+  "tap-dancing spiders",
   "invisible sandworms",
-  "friends and family dancing to the Banana Boat song on loop"
+  "friends and family dancing to \"Day-O (The Banana Boat Song)\" on an endless loop",
 ];
 
 let phraseListIndexMap = [phraseListOne, phraseListTwo, phraseListThree];
@@ -134,7 +134,7 @@ function checkName() {
     document.getElementById("name").placeholder = "";
     return true;
   } else {
-    document.getElementById("name").placeholder = "I require a name!!";
+    document.getElementById("name").placeholder = "Beetlejuice needs a victim's name!";
     return false;
 }}
 
@@ -143,10 +143,10 @@ function checkButtons() {
   if ((document.getElementById("firstResult").innerHTML == ``) || (
     document.getElementById("secondResult").innerHTML == ``) || (
     document.getElementById("thirdResult").innerHTML == ``)) {
-      document.getElementById("finalButton").innerHTML = `<b id="fullPhrase" class="fw-bold fs-3">You've missed some buttons!</b>`;
+      document.getElementById("finalButton").innerHTML = `<b id="fullPhrase" class="fw-bold fs-3">Complete every curse step first!</b>`;
       return false;
   } else {
-      document.getElementById("finalButton").innerHTML = `<b id="fullPhrase" class="fw-bold fs-3">Click Here - It's showtime!!</b>`;
+      document.getElementById("finalButton").innerHTML = `<b id="fullPhrase" class="fw-bold fs-3">Click here — it's showtime!</b>`;
       return true;
   }
 }
@@ -161,7 +161,7 @@ function genHex() {
   let finalPhrase = document.getElementById("finalResult");
   let name = document.getElementById("name").value;
   let phrase = `${FIRST_PHRASE.innerHTML} ${SECOND_PHRASE.innerHTML} ${THIRD_PHRASE.innerHTML}`;
-  finalPhrase.innerHTML = name + " " + phrase.toLowerCase() + "!";
+  finalPhrase.innerHTML = name + " " + phrase + "!";
 }
 
 // Function for playing scary sounds
