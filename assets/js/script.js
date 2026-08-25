@@ -16,7 +16,7 @@ let phraseListOne = [
   "shall eternally",
   "is doomed to",
   "will repeatedly",
-  "is bound to",
+  "has been chosen to",
   "is condemned to",
   "will henceforth",
 ];
@@ -35,14 +35,14 @@ let phraseListThree = [
   "a mountain of Beetlejuice's poop",
   "buckets of Beetlejuice's spittle",
   "a lake of boiling Beetlejuice — whatever that means; use your imagination",
-  "rotting corpses for a million and one years — an absurdly long time",
+  "rotting corpses with far too many teeth",
   "a mountain of stale candy corn",
   "buckets of sinister sweets",
   "a lake of witches' brew",
-  "rotten pumpkins for a thousand Halloweens",
+  "rotten pumpkins carved in their own likenesses",
   "eerie whispers beneath the moonlight",
   "spectral footsteps in the dark",
-  "an endless night of spooktacular puns",
+  "a relentless barrage of spooktacular puns",
   "cauldrons bubbling with enchanted brews",
   "ghosts and goblins at the doorstep",
   "skeletons dancing to \"The Monster Mash\"",
@@ -51,11 +51,47 @@ let phraseListThree = [
   "swarms of creepy-crawlies",
   "tap-dancing spiders",
   "invisible sandworms",
-  "friends and family dancing to \"Day-O (The Banana Boat Song)\" on an endless loop",
+  "friends and family dancing to \"Day-O (The Banana Boat Song)\" with unnerving enthusiasm",
 ];
 
 let phraseListIndexMap = [phraseListOne, phraseListTwo, phraseListThree];
 let phraseElementIndexMap = [FIRST_PHRASE, SECOND_PHRASE, THIRD_PHRASE];
+
+const COMMON_WORDS = new Set([
+  "a", "an", "and", "at", "be", "been", "by", "for", "has", "in", "is",
+  "of", "on", "shall", "that", "the", "their", "through", "to", "will", "with",
+]);
+
+function normalizeWord(word) {
+  let normalizedWord = word
+    .toLowerCase()
+    .replace(/['’]s$/, "")
+    .replace(/[^a-z0-9]/g, "");
+
+  if (normalizedWord.endsWith("ly") && normalizedWord.length > 5) {
+    normalizedWord = normalizedWord.slice(0, -2);
+  }
+
+  return normalizedWord;
+}
+
+function getMeaningfulWords(phrase) {
+  return phrase
+    .split(/\s+/)
+    .map(normalizeWord)
+    .filter((word) => word && !COMMON_WORDS.has(word));
+}
+
+function repeatsEarlierWord(candidate, index) {
+  const earlierWords = new Set(
+    phraseElementIndexMap
+      .slice(0, index)
+      .flatMap((element) => getMeaningfulWords(element.textContent))
+  );
+
+  return getMeaningfulWords(candidate).some((word) => earlierWords.has(word));
+}
+
 let generateCurse = function (e) {
   if (!checkName()) {
     return;
@@ -81,7 +117,11 @@ CURSE_BUTTONS.forEach((button) => button.addEventListener("click", generateCurse
 
 let generateText = function (index) {
   let phraseList = phraseListIndexMap[index];
-  let phrase = phraseList[Math.floor(Math.random() * phraseList.length)];
+  let compatiblePhrases = phraseList.filter(
+    (phrase) => !repeatsEarlierWord(phrase, index)
+  );
+  let phrasePool = compatiblePhrases.length > 0 ? compatiblePhrases : phraseList;
+  let phrase = phrasePool[Math.floor(Math.random() * phrasePool.length)];
 
   let phraseElement = phraseElementIndexMap[index];
   phraseElement.innerHTML = phrase;
