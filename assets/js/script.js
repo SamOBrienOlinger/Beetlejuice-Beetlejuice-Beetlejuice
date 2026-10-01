@@ -2,6 +2,11 @@
 (() => {
   'use strict';
   const byId = (id) => document.getElementById(id);
+  // Older Safari implements MediaQueryList.addListener, not addEventListener.
+  const onMediaChange = (query, listener) => {
+    if (typeof query.addEventListener === 'function') query.addEventListener('change', listener);
+    else if (typeof query.addListener === 'function') query.addListener(listener);
+  };
   const readPreference = (key) => {
     try { return localStorage.getItem(key); } catch { return null; }
   };
@@ -14,7 +19,7 @@
   const menuButton = document.querySelector('.navbar-toggler');
   const menu = byId('navbarNav');
   if (menu && menuButton) {
-    const desktop = window.matchMedia('(min-width: 992px)');
+    const desktop = window.matchMedia('(min-width: 62em)');
     document.documentElement.classList.add('nav-enhanced');
     menuButton.hidden = false;
     const setMenu = (open, restoreFocus = false) => {
@@ -32,7 +37,7 @@
     menu.addEventListener('click', (event) => {
       if (event.target.closest('a')) setMenu(false);
     });
-    desktop.addEventListener('change', () => {
+    onMediaChange(desktop, () => {
       const wasInMenu = menu.contains(document.activeElement);
       const wasOnToggle = document.activeElement === menuButton;
       setMenu(false);
@@ -83,7 +88,7 @@
     savePreference('beetlejuice-motion', motionChoice);
     applyMotion();
   });
-  reducedMotion.addEventListener('change', applyMotion);
+  onMediaChange(reducedMotion, applyMotion);
   applyMotion();
 
   // Only initialise the generator on its own page.
@@ -192,7 +197,7 @@
     }));
 
     const closeDialog = () => {
-      if (dialog.open) dialog.close();
+      if (dialog.open && typeof dialog.close === 'function') dialog.close();
     };
     const cancelReveal = () => {
       if (phase !== 'loading') return;
@@ -213,9 +218,7 @@
       // textContent prevents names such as <img ...> being interpreted as HTML.
       fullCurse = `${nameInput.value.trim()} ${outputs.map((output) => output.textContent).join(' ')}!`;
       byId('finalResult').textContent = fullCurse;
-      dialog.showModal();
-      playSound();
-      revealTimer = setTimeout(() => {
+      const reveal = () => {
         if (phase !== 'loading') return;
         revealTimer = null;
         closeDialog();
@@ -224,7 +227,12 @@
         phase = 'result';
         byId('result-title').focus({ preventScroll: true });
         result.scrollIntoView({ block: 'start', behavior: 'auto' });
-      }, motionPaused() ? 150 : 1500);
+      };
+      // Do not strand the player when a browser lacks native dialog support.
+      if (typeof dialog.showModal !== 'function') { reveal(); return; }
+      try { dialog.showModal(); } catch { reveal(); return; }
+      playSound();
+      revealTimer = setTimeout(reveal, motionPaused() ? 150 : 1500);
     });
     byId('refresh').addEventListener('click', () => {
       clearTimeout(revealTimer);
@@ -280,7 +288,7 @@
 
   // Keep the existing Formspree endpoint and native POST fallback.
   const form = byId('contact-form');
-  if (form) {
+  if (form && typeof window.fetch === 'function' && typeof window.AbortController === 'function' && typeof window.FormData === 'function') {
     const fields = ['fullname', 'email', 'message'].map(byId);
     const formStatus = byId('form-status');
     const sendButton = byId('send-message');
