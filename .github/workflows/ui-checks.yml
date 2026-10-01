@@ -1,0 +1,53 @@
+name: UI regression checks
+
+on:
+  push:
+    branches: [main, ui-ux-refinements-2026-10-01]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser testing tools
+        run: |
+          python -m pip install playwright==1.58.0
+          python -m playwright install --with-deps ${{ matrix.browser }}
+      - name: Check JavaScript syntax
+        run: node --check assets/js/script.js
+      - name: Offline interaction regression suite
+        if: matrix.browser == 'chromium'
+        run: |
+          mkdir -p reports
+          python tests/test_ui.py > reports/offline-results.json
+      - name: Prepare original reference for comparison
+        run: |
+          mkdir -p /tmp/beetlejuice-before
+          git archive 57628c305dacec6f5c0777c065730259a2eed57a | tar -x -C /tmp/beetlejuice-before
+      - name: Check local site with original media
+        run: python tests/test_browser.py --browser ${{ matrix.browser }} --baseline /tmp/beetlejuice-before
+      - name: Package source snapshot
+        if: always() && matrix.browser == 'chromium'
+        run: git archive HEAD --format=zip > reports/site-source.zip
+      - name: Save reports and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: beetlejuice-${{ matrix.browser }}-checks
+          path: reports/
+          retention-days: 14

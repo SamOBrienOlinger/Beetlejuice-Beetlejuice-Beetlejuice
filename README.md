@@ -24,7 +24,7 @@ cd Beetlejuice-Beetlejuice-Beetlejuice
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open [localhost:8000](http://localhost:8000). Serve the repository over HTTP so module imports, relative assets and page links resolve correctly.
+Open [localhost:8000](http://localhost:8000). Serve the repository over HTTP so relative assets and page links resolve correctly.
 
 ## Repository guide
 
@@ -32,12 +32,19 @@ Open [localhost:8000](http://localhost:8000). Serve the repository over HTTP so 
 | --- | --- |
 | [index.html](index.html) | Primary browser entry point |
 | [assets/](assets/) | Project styles, scripts, data and imagery |
+| [tests/test_ui.py](tests/test_ui.py) | Offline Chromium interaction and layout checks |
+| [UI_UX_REFINEMENTS.md](UI_UX_REFINEMENTS.md) | Refinements, preserved features and verification limits |
 
 ## Checks and review
 
-No automated application test command is configured in this snapshot.
+```bash
+node --check assets/js/script.js
+python tests/test_ui.py
+```
 
-For a manual review, follow the main user journey, check keyboard navigation and narrow-screen layouts, and inspect the browser console for missing assets or failed requests.
+The Python checks require Playwright and Chromium. They render local document fixtures without a server. Contact responses and other browser boundaries are mocked; no message is sent. External images, fonts, audio and videos are not loaded. See [verification limits](UI_UX_REFINEMENTS.md#verification-limits).
+
+For a live review, follow the main user journey, check keyboard navigation and narrow-screen layouts with the original media loaded, and inspect the browser console for missing assets or failed requests. Verify real contact delivery separately.
 
 ## Deployment
 
