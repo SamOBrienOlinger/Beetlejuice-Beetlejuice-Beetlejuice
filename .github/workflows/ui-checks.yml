@@ -2,11 +2,15 @@ name: UI regression checks
 
 on:
   push:
-    branches: [main, ui-ux-refinements-2026-10-01]
+    branches: [main]
   pull_request:
 
 permissions:
   contents: read
+
+concurrency:
+  group: ui-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   browser-checks:

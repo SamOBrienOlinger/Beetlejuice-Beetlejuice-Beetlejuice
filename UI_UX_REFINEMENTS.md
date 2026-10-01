@@ -32,31 +32,49 @@ message was sent.
 - Removed unused Bootstrap, Popper, jQuery and icon-library downloads. Layout
   and navigation now use the project's own CSS and JavaScript.
 
-## Verification
+## Checks completed on 1 October 2026
 
-Run syntax and offline checks:
+[GitHub Actions run 36879415170](https://github.com/SamOBrienOlinger/Beetlejuice-Beetlejuice-Beetlejuice/actions/runs/36879415170)
+passed for Chromium, Firefox and WebKit at commit
+`db6f09481b6e922ec35150e23b2f25185bd55045`.
+
+- JavaScript syntax validation passed.
+- The offline Chromium suite passed 271 assertions.
+- The HTTP-served suite passed 176 assertions in each of three browser engines.
+- Layouts were checked at 320, 375, 390, 768, 1024 and 1440 CSS-pixel widths.
+- The HTTP checks found no missing local assets or uncaught JavaScript errors.
+- Original-media screenshots were captured, including desktop/mobile home and
+  game comparisons with the pre-refinement version. Homepage, game, contact,
+  history, More Fun and result screenshots were visually reviewed.
+
+These counts include repeated checks across pages and viewport sizes, not
+hundreds of distinct end-user features.
+
+## Running the checks
 
 ```sh
 node --check assets/js/script.js
 python tests/test_ui.py
-```
-
-Run the HTTP-served site checks with local media:
-
-```sh
 python tests/test_browser.py --browser chromium
 python tests/test_browser.py --browser firefox
 python tests/test_browser.py --browser webkit
 ```
 
-Install Python Playwright and the relevant browsers first. GitHub Actions
-runs these checks and attaches JSON results and screenshots to each run.
+Install Python Playwright and the relevant browsers first. GitHub Actions runs
+these checks on pull requests and main-branch pushes, attaching JSON results
+and screenshots. Outdated runs are cancelled to avoid duplicate work.
+
+### Verification limits
+
 The offline suite mocks storage, clipboard, network and navigation boundaries.
 The HTTP suite uses the actual HTML, CSS, JavaScript and local artwork.
 Contact responses and third-party video frames are mocked: no message is sent.
+Google Fonts loaded in the captured browser runs; third-party services can
+still change or be blocked by an individual browser/network.
 A WebKit engine check is not a physical iPhone or Safari-device test.
-A passing run does not certify all-browser behavior or full accessibility
-conformance. Consult the recorded results rather than assuming tests passed.
+Passing checks do not certify all-browser behavior or full accessibility
+conformance. Full-page screenshots can display fixed-position elements
+outside the user's current viewport; interactive checks are also necessary.
 
 ## Content intentionally not changed
 
