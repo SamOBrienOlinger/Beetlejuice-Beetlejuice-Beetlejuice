@@ -45,6 +45,8 @@ jobs:
           git archive 57628c305dacec6f5c0777c065730259a2eed57a | tar -x -C /tmp/beetlejuice-before
       - name: Check local site with original media
         run: python tests/test_browser.py --browser ${{ matrix.browser }} --baseline /tmp/beetlejuice-before
+      - name: Extended responsive and compatibility checks
+        run: python tests/test_responsive.py --browser ${{ matrix.browser }}
       - name: Package source snapshot
         if: always() && matrix.browser == 'chromium'
         run: git archive HEAD --format=zip > reports/site-source.zip
