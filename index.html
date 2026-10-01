@@ -1,131 +1,68 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="description" content="A playful, personalised three-part curse generator. Enter the world of Beetlejuice, explore the history and enjoy a little Halloween fun.">
+    <meta name="theme-color" content="#33004d">
+    <title>Let’s get cursing! | Beetlejuice</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Neucha&display=swap"
-        rel="stylesheet">
-    <title>Beetlejuice</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Neucha&display=swap" rel="stylesheet">
-    <meta name="description"content="Beetlejuice site is website of Game of victim(not real) and curse on Halloween Day. It is all about having fun. Designed and implemented  by Halloween_Hackathon Team3.">
-    <meta name="keywords"content="History, culture, Folklore, Margic, darkly, comedic, asupernatural , having fun,film, project, Team3, Halloween, Hackathon ,nature, science,UK, Ireland ,London, Germany, Sweden, Europe">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&amp;family=Neucha&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/script.js" defer></script>
 </head>
-
-<body class="purple-bg">
+<body class="purple-bg" id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black red-link mb-5">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img class="logo " src="./assets/images/logo-black.png" alt="BeetleJuice Logo">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="nav-inner">
+                <a class="navbar-brand" href="index.html" aria-label="Beetlejuice home" aria-current="page">
+                    <img class="logo" src="assets/images/logo-black.png" alt="Beetlejuice" width="160">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" hidden>
+                    <span class="menu-icon" aria-hidden="true"></span><span>Menu</span>
                 </button>
-                <div class="collapse navbar-collapse  justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-animation fs-5 " href="game.html">Game
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-animation fs-5" href="history.html">History</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-animation fs-5" href="contact.html">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="navbar-nav" id="navbarNav">
+                    <li><a class="nav-link" href="game.html">Game</a></li>
+                    <li><a class="nav-link" href="history.html">History</a></li>
+                    <li><a class="nav-link" href="fun.html">More Fun</a></li>
+                    <li><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
             </div>
         </nav>
     </header>
-
-    <!-- Beetlejuice Markup -->
-    <main class="site-main">
-        <section id="phussy" class="landing-card card semi-opaque-box" aria-labelledby="landing-title">
-            <h1 id="landing-title" class="card-title text-center fw-bold">Let's get cursing!</h1>
+    <main id="main-content" class="site-main" tabindex="-1">
+        <section id="phussy" class="landing-card semi-opaque-box" aria-labelledby="landing-title">
+            <h1 id="landing-title" class="text-center">Let's get cursing!</h1>
             <div id="welcome">
                 <div class="image-container">
-                    <img id="welcome-image" src="./assets/images/its-showtime2.gif"
-                        alt="Beetlejuice appearing and inviting you to play" width="245" height="245"
-                        loading="eager" fetchpriority="high">
+                    <img id="welcome-image" src="assets/images/its-showtime2.gif" alt="Beetlejuice appearing and inviting you to play" width="245" height="245" fetchpriority="high">
                 </div>
                 <div id="welcome-message">
                     <p>Welcome to my World. Don't be SCARED...</p>
                     <p>Let's play a little game?</p>
                     <p>I'm The Ghost With The Most, I'll help ya curse anyone you like!</p>
                     <p>Let's Turn On The Juice And See What Shakes Loose!</p>
-                    <a class="play-button nav-link nav-link-animation" href="game.html">CLICK to PLAY</a>
+                    <a class="play-button" href="game.html">CLICK to PLAY</a>
                 </div>
             </div>
         </section>
     </main>
-    <!--footer-->
-    <footer id="foot" class="footer_bg mt-4 text-white" style="padding:30px;">
-        <div class="row  align-items-center justify-content-center fs-4">
-            <div class="col footer_name">
-                <!--needs team name if needed or we can remove if not necessary-->
-                <h2>The Magic Numb3ers</h2>
-            </div>
-            <div class="col footer_copyright">
-                <h2>
-                    &copy; <span id="copyrightYear"></span> The Magic Numb3rs.
-                </h2>
-            </div>
-            <div class="col footer_icon">
-                <div class="row">
-                    <div class="col">
-                        <p>
-                            <!--href still needs a link-->
-                            <a href="https://twitter.com/codeinstitute?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
-                                aria-label="Twitter" target="_blank"> <i class="fa-brands fa-twitter"></i></a>
-                        </p>
-                    </div>
-                    <div class="col">
-                        <p>
-                            <!--href still needs a link-->
-                            <a href="https://www.youtube.com/embed/__JsGXjPBak" aria-label="Twitter" target="_blank"><i
-                                    class="fab fa-youtube-square"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+
+    <footer class="footer_bg" id="foot">
+        <div class="footer-inner">
+            <p class="footer_name">The Magic Numb3rs</p>
+            <p class="footer_copyright">&copy; <span id="copyrightYear">2026</span> The Magic Numb3rs.</p>
+            <nav class="footer-links" aria-label="Social links">
+                <a href="https://twitter.com/codeinstitute?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer">Twitter<span class="sr-only"> (opens in a new tab)</span></a>
+                <a href="https://www.youtube.com/watch?v=__JsGXjPBak" target="_blank" rel="noopener noreferrer">YouTube<span class="sr-only"> (opens in a new tab)</span></a>
+            </nav>
+        </div>
+        <div class="footer-tools">
+            <button id="motion-toggle" class="quiet-button" type="button" aria-pressed="false" hidden>Pause animations</button>
+            <a href="#top">Back to top</a>
         </div>
     </footer>
-
-    <!--fontawesome kit-->
-    <script src="https://kit.fontawesome.com/0969cca03a.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-
-    <script>
-        // Function for playing a sound //
-        const audio = new Audio("assets/audio/evil-laugh-1.mp3");
-        const buttons = document.querySelectorAll("button.scary-sound");
-
-        buttons.forEach(button => {
-            button.addEventListener("click", () => {
-            audio.play();
-            });
-        });
-    </script>
-    <script src="./assets/js/script.js"></script>
 </body>
-
 </html>
