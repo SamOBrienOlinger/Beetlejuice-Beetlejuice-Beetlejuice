@@ -1,0 +1,75 @@
+name: Prepare cleaned README preview
+
+on:
+  push:
+    branches: [docs-preview-cleanup-2026-10-05]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  prepare-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: beetlejuice-chromium-checks
+          path: /tmp/verified-preview
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36887401712
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image tools
+        run: python -m pip install Pillow==12.3.0
+      - name: Reassemble the exact supplied preview without its footer annotation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import base64
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from PIL import Image, ImageDraw, ImageFont
+
+          # Reuse the previously verified screenshots; do not render or alter the site.
+          source = Path('/tmp/verified-preview/responsive-chromium')
+          image = Image.new('RGB', (1236, 1196), '#f3f3f3')
+          draw = ImageDraw.Draw(image)
+          font_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+          title_font = ImageFont.truetype(font_path, 21)
+          label_font = ImageFont.truetype(font_path, 15)
+          draw.text((24, 14), 'Beetlejuice · responsive verification previews', font=title_font, fill='#222222')
+          draw.text((24, 48), 'Phone · 320 CSS px · full page', font=label_font, fill='#333333')
+          draw.text((368, 48), 'Desktop · 1440 CSS px · full page (scaled)', font=label_font, fill='#333333')
+          draw.text((368, 700), 'Landscape · 844 × 390 CSS px · viewport only', font=label_font, fill='#333333')
+          with Image.open(source / 'index-320x568.png') as phone:
+              image.paste(phone.convert('RGB'), (24, 74))
+          with Image.open(source / 'index-1440x900.png') as desktop:
+              image.paste(desktop.convert('RGB').resize((844, 583), Image.Resampling.LANCZOS), (368, 74))
+          with Image.open(source / 'index-844x390.png') as landscape:
+              image.paste(landscape.convert('RGB').crop((0, 0, 844, 390)), (368, 726))
+
+          # Must match the locally cleaned, user-supplied image pixel for pixel.
+          expected = '97dd717dcc607040fc2109e563056bead8746fd8fcae7538d31db8804d2d42a7'
+          pixel_digest = hashlib.sha256(image.tobytes()).hexdigest()
+          if pixel_digest != expected:
+              raise RuntimeError('Preview pixel validation failed: ' + pixel_digest)
+          output = Path('/tmp/Beetlejuice_Responsive_Previews_Clean.png')
+          image.save(output, optimize=True)
+          payload = json.dumps({'encoding': 'base64', 'content': base64.b64encode(output.read_bytes()).decode('ascii')}).encode('utf-8')
+          request = Request('https://api.github.com/repos/' + os.environ['REPOSITORY'] + '/git/blobs', data=payload, method='POST', headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json', 'X-GitHub-Api-Version': '2022-11-28'})
+          with urlopen(request, timeout=45) as response:
+              result = json.load(response)
+          print('CLEAN_PREVIEW_BLOB_SHA=' + result['sha'])
+          print('CLEAN_PREVIEW_PIXEL_SHA256=' + pixel_digest)
+          print('CLEAN_PREVIEW_PNG_SHA256=' + hashlib.sha256(output.read_bytes()).hexdigest())
+          # No branch, README, application file or repository setting is changed here.
+          PY
