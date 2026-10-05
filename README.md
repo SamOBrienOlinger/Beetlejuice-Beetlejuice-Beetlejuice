@@ -14,6 +14,12 @@ A Halloween hackathon website combining a playful curse generator with Beetlejui
 
 > **Project notes:** An unofficial fan project. Film imagery, branding, audio and other third-party material retain their respective ownership and attribution requirements.
 
+## Responsive design
+
+Preview of the homepage in phone, desktop and landscape layouts.
+
+![Beetlejuice homepage shown in phone, desktop and landscape layouts](assets/images/readme-images/beetlejuice-responsive-previews.png)
+
 ## Getting started
 
 Requires Git, a browser and a local HTTP server. Python 3 provides one without installing application packages.
