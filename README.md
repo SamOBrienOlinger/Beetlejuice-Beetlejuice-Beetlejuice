@@ -4,7 +4,7 @@ A Halloween hackathon website combining a playful curse generator with Beetlejui
 
 **HTML · CSS · JavaScript**
 
-[Visit the website](https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/) · [Getting started](#getting-started) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
+[Visit the website](https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/) · [Getting started](#getting-started) · [Data model](#entity-relationship-diagram) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
 
 ## What you can explore
 
@@ -19,6 +19,31 @@ A Halloween hackathon website combining a playful curse generator with Beetlejui
 Preview of the homepage in phone, desktop and landscape layouts.
 
 ![Beetlejuice homepage shown in phone, desktop and landscape layouts](assets/images/readme-images/beetlejuice-responsive-previews.png)
+
+## Entity relationship diagram
+
+The browser builds a curse in three slots for the beginning, middle and ending. Each slot draws from its own phrase list. Later choices filter out phrases that repeat meaningful words from earlier selections. The generator combines the name and all three selected phrases when the curse is revealed. [Generator logic](assets/js/script.js)
+
+```mermaid
+erDiagram
+    accTitle: Beetlejuice curse builder
+    accDescr: Each curse has three ordered slots. A slot offers phrases from its own list and holds one selection when filled.
+    "Curse Draft" ||--|{ "Phrase Slot" : contains
+    "Phrase Slot" ||--|{ "Phrase Option" : offers
+
+    "Curse Draft" {
+        string name
+        number nextPart
+        string phase
+    }
+    "Phrase Slot" {
+        number position "Beginning, middle or ending"
+        string selection "Empty until chosen"
+    }
+    "Phrase Option" {
+        string text
+    }
+```
 
 ## Getting started
 
